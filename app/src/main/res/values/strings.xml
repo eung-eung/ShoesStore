@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">ShoesStore</string>
+
+    <string name="action_home">Home</string>
+    <string name="action_chat">Chat</string>
+    <string name="action_user">User</string>
+    <string name="action_booking">Booking</string>
+    <string name="action_feed">New Feed</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+
+    <string name="register">REGISTER</string>
+    <string name="login_hint">Phone</string>
+    <string name="register_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="signup_login_hint">Already have an account? Sign In</string>
+    <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
+    <string name="forget_your_pass">Forget your password ?</string>
+
+    <string name="dummy_text">I will transform your ideas into unique ai generated art!
+\n
+\n
+\n
+\n !! IMPORTANT: Since not all kind of art is possible with AI, please always contact me first BEFORE making an order, so we can discuss together your ideas:) !!
+\n
+\n
+\n
+\nI can create:
+\n
+\nportraits
+\ncharacter design
+\nt-shirt concepts
+\nlandscapes
+\nproduct photography
+\nmusic/book covers
+\nanimals
+\ngeneral art
+\n
+\n
+\n … and much more - the possibilities are endless!
+\n
+\n group images with consistent characters
+\n turning your photo into AI
+\n integrating your product into an AI-image
+\n photoediting
+\n text
+\n
+\n
+\n!! IMPORTANT: Since not all kind of art is possible with AI, please always contact me first BEFORE making an order, so we can discuss together your ideas:) !!
+\n
+\n
+\n
+\nI am looking forward to hearing your ideas and working with you:)
+    </string>
+
+    <string name="feedbackString">This studio is a hidden gem! From the moment I walked in, I was captivated by the vibrant energy and creativity that filled the space. The instructors are knowledgeable and passionate, guiding me to unlock my artistic potential. I highly recommend this studio for a truly inspiring experience!
+    </string>
+
+    <string name="CopyRight">  ©2023 Booking Studio.\n
+        All rights reserved. This material, including but not limited to text, graphics, images, and any other content, is protected by copyright laws and international treaties.
+        Unauthorized reproduction, distribution, or modification of this content is strictly prohibited without prior written permission from the copyright owner.
+        \nLegal action will be taken against any infringement.
+        \nFor permission requests or further inquiries, please contact BookingService@gmail.com.
+    </string>
+    <string name="update_user_information">Update Information</string>
+    <string name="lbNameDialog">Name</string>
+    <string name="lbDOBDialog">Birth Day</string>
+    <string name="lbPhoneDialog">0966324244</string>
+    <string name="lbEmailDialog">Phinhse150972@gmail.com</string>
+    <string name="feedback_form_text">Feedback Form</string>
+    <string name="slogan_Framemates">Get started with Framemates.</string>
+    <item name="pinView" type="id" />
+    <string name="title_activity_main">MainActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+</resources>

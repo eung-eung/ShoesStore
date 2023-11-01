@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    <color name="colorPrimaryLight">#8b9dc3</color>-->
+    <!--    <color name="colorAccentDark">#dfe3ee</color>-->
+    <!--    <color name="colorAccentLight">#ffffff</color>-->
+    <!--    <color name="Custom_Color1">#38ef7d</color>-->
+    <!--    <color name="Custom_Color2">#11998e</color>-->
+    <!--    <color name="Custom_Color3">#75D39B</color>-->
+
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#FFFFFF</color>
+
+    <!--colors for modern ui-->
+    <color name="whiteTextColor">#fff</color>
+    <color name="primaryTextColor">#235a8f</color>
+    <color name="loginBkColor">#f0f0f0</color>
+
+    <!--color for card-->
+    <color name="whiteCardColor">#fff</color>
+
+    <!--colors for Home-->
+    <!--    <color name="cardView">#2C4F2D</color>-->
+    <color name="cardView">#FFFFFF</color>
+    <color name="sortItem">#f5f6fa</color>
+    <color name="sortItemSelected">#235a8f</color>
+    <color name="backgroundColor">#FFFFFF</color>
+    <!--    <color name="backgroundColor">#FF0000</color>-->
+
+
+    <!--ToolBar for App-->
+    <color name="ToolBar">#ffffff</color>
+
+
+    <!--Selected Item for App-->
+    <color name="Selected_Item">#97BC62</color>
+
+
+    <!--TabLayout Item for Selected-->
+    <color name="UnSelected_Tab">#FEEDDA</color>
+    <color name="Selected_Tab">#EE4E34</color>
+
+
+    <!--Gallery Item for StudioDetail-->
+    <color name="AppBarColor">#85FF85</color>
+    <color name="BackgroundText_Gallery">#930330</color>
+    <color name="TextColor_Gallery">#000000</color>
+    <color name="SubTextColor_Gallery">#AEAFB1</color>
+
+    <!--Gallery Item for Dialog-->
+
+    FFD154
+    <color name="DialogBar">#FFD154</color>
+    <!--    <color name="DialogBar">#FFC488</color>-->
+    <color name="TextColor_Dialog">#000000</color>
+
+    <!--Booking Page -->
+    <color name="Selected_Tab_Layout">#FF0000</color>
+    <color name="UnSelected_Tab_Layout">#3700B2</color>
+    <color name="Background_Tab_Layout">#87d3f8</color>
+
+
+    <!--Studio Page -->
+    <color name="Title">#000000</color>
+    <color name="Description">#000000</color>
+    <color name="Price">#FF0000</color>
+    <color name="Discount">#FF4141</color>
+    <color name="cardView2">#FDFCFB</color>
+
+    <!--Text Page -->
+    <color name="BlackText">#000000</color>
+    <color name="GrayText">#8f959e</color>
+    <color name="GrayText2">#6D6D6D</color>
+    <color name="RedText">#FF4141</color>
+
+    <!--ViewMoreItemBtnColor Page -->
+    <color name="btnViewMoreItem">#D6D5D5</color>
+
+    <!--OrderBtnColor Page -->
+    <color name="Chat_btn">#FFD154</color>
+    <color name="Feedback_btn">#BAFC6060</color>
+    <color name="Gray_btn">#AEAFB1</color>
+    <color name="Booking_btn">#0283df</color>
+    <color name="Booking_text_btn">#ffffff</color>
+    <!--OrderBtnColor Page -->
+    <color name="Button_1">#FFD154</color>
+    <color name="Button_2">#BAFC6060</color>
+    <color name="Button_3">#AEAFB1</color>
+
+    <!--Chat Page -->
+    <color name="Text_Chat_Color">#3D3D3D</color>
+    <color name="Background_Chat_Color">#FFD154</color>
+
+    <!--Appbar -->
+    <color name="Text_Appbar_Color">#000000</color>
+
+    <!--Sort Home page -->
+    <color name="Text_Selected_Color">#FFFFFF</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+
+</resources>
