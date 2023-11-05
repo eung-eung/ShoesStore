@@ -19,6 +19,10 @@ public class BackendService {
         this.executor = executor;
     }
 
+    public static String FromImageUuidToURL(String uuid) {
+        return String.format("%s/image?uuid=%s", Config.URL, uuid);
+    }
+
     // Register user: call this function to trigger OTP service (send to email)
     // To complete registration process, must call VerifyRegisterUser()
     public void RegisterUser(RegisterUserRequest request, final ResultCallBack<Boolean> callBack) {

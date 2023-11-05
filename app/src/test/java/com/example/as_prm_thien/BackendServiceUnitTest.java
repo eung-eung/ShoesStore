@@ -3,6 +3,7 @@ package com.example.as_prm_thien;
 import static org.junit.Assert.assertEquals;
 
 import com.example.as_prm_thien.Net.BackendService;
+import com.example.as_prm_thien.Net.Config;
 import com.example.as_prm_thien.Net.GetProductRequest;
 import com.example.as_prm_thien.Net.GetProductResponse;
 import com.example.as_prm_thien.Net.LoginUserRequest;
@@ -86,6 +87,11 @@ public class BackendServiceUnitTest {
 //        executorService.shutdown();
 //        while (!executorService.awaitTermination(100, TimeUnit.MILLISECONDS)) {
 //        }
+    }
+
+    @Test
+    public void FromImageUuidToURL() {
+        assertEquals("http://35.187.224.84:9003/image?uuid=91bb428cac704d91908f156b90e56981", BackendService.FromImageUuidToURL("91bb428cac704d91908f156b90e56981"));
     }
 
     @Test
