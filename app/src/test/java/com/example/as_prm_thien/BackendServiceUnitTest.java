@@ -3,6 +3,8 @@ package com.example.as_prm_thien;
 import static org.junit.Assert.assertEquals;
 
 import com.example.as_prm_thien.Net.BackendService;
+import com.example.as_prm_thien.Net.GetProductRequest;
+import com.example.as_prm_thien.Net.GetProductResponse;
 import com.example.as_prm_thien.Net.LoginUserRequest;
 import com.example.as_prm_thien.Net.LoginUserVerifyRequest;
 import com.example.as_prm_thien.Net.LoginUserVerifyResponse;
@@ -13,6 +15,7 @@ import com.example.as_prm_thien.Net.ResultCallBack;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -76,6 +79,27 @@ public class BackendServiceUnitTest {
                 if (result instanceof Result.Success) {
                     LoginUserVerifyResponse resp = ((Result.Success<LoginUserVerifyResponse>) result).data;
                     System.out.println(resp);
+                }
+            }
+        });
+
+//        executorService.shutdown();
+//        while (!executorService.awaitTermination(100, TimeUnit.MILLISECONDS)) {
+//        }
+    }
+
+    @Test
+    public void GetProducts() throws InterruptedException {
+        backendService.GetProducts(new GetProductRequest(0, 1000), new ResultCallBack<ArrayList<GetProductResponse>>() {
+            @Override
+            public void onComplete(Result<ArrayList<GetProductResponse>> result) {
+                assertEquals(true, result instanceof Result.Success);
+                if (result instanceof Result.Success) {
+                    ArrayList<GetProductResponse> products = ((Result.Success<ArrayList<GetProductResponse>>) result).data;
+                    assertEquals(2, products.size());
+                    assertEquals("91bb428cac704d91908f156b90e56981", products.get(0).getImage_url());
+
+                    System.out.println("products " + products);
                 }
             }
         });

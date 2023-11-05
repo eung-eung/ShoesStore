@@ -1,12 +1,15 @@
 package com.example.as_prm_thien.Net;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.concurrent.Executor;
 
 public class BackendService {
@@ -141,6 +144,43 @@ public class BackendService {
 
                         LoginUserVerifyResponse resp = new Gson().fromJson(response.toString(), LoginUserVerifyResponse.class);
                         callBack.onComplete(new Result.Success<>(resp));
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void GetProducts(GetProductRequest request, final ResultCallBack<ArrayList<GetProductResponse>> callBack) {
+        this.executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL(String.format("%s/product?offset=%d&limit=%d", Config.URL, request.getOffset(), request.getLimit()));
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                    conn.setRequestMethod("GET");
+                    conn.setRequestProperty("Accept", "application/json");
+                    conn.setDoOutput(false);
+
+                    if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                        callBack.onComplete(new Result.Error<>(new Exception("failed")));
+                        return;
+                    }
+
+                    try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+                        StringBuilder response = new StringBuilder();
+                        String responseLine = null;
+                        while ((responseLine = br.readLine()) != null) {
+                            response.append(responseLine.trim());
+                        }
+
+                        Type listProducts = new TypeToken<ArrayList<GetProductResponse>>() {
+                        }.getType();
+                        ArrayList<GetProductResponse> products = new Gson().fromJson(response.toString(), listProducts);
+
+                        callBack.onComplete(new Result.Success<>(products));
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
