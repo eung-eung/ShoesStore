@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.chaos.view.PinView;
+import com.example.as_prm_thien.Home.HomeActivity;
+import com.example.as_prm_thien.MainActivity;
 import com.example.as_prm_thien.R;
 
 
@@ -23,9 +25,9 @@ public class OtpConfirmActivity extends AppCompatActivity {
         setContentView(R.layout.activity_otp_confirm);
 
         String phoneValue = "0966324245";
-        TextView phoneSignIn = findViewById(R.id.phoneSignIn);
-        String result = phoneValue.replaceAll("\\d(?=\\d{4})", "*");
-        phoneSignIn.setText(result);
+//        TextView phoneSignIn = findViewById(R.id.phoneSignIn);
+//        String result = phoneValue.replaceAll("\\d(?=\\d{4})", "*");
+//        phoneSignIn.setText(result);
         getOptConfirm();
     }
 
@@ -41,7 +43,7 @@ public class OtpConfirmActivity extends AppCompatActivity {
                 if (charSequence.toString().length() == 6) {
                     pinValue = pinView.getText().toString();
                     Log.w("TAG", pinValue);
-                    Intent intent = new Intent(OtpConfirmActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(OtpConfirmActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }
             }

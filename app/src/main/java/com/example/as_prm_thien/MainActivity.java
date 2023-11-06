@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.as_prm_thien.Admin.AdminHomeActivity;
 import com.example.as_prm_thien.Login.LoginActivity;
 import com.example.as_prm_thien.Login.Register_Activity;
 
@@ -24,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         loginButtonLobby.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+//                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, AdminHomeActivity.class);
                 startActivity(intent);
             }
         });

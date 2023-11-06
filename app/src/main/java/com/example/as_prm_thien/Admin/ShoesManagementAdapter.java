@@ -1,4 +1,4 @@
-package com.example.as_prm_thien.Adapter;
+package com.example.as_prm_thien.Admin;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,27 +31,27 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
-public class CartAdapter extends RecyclerView.Adapter<CartAdapter.StudioViewHolder> {
+public class ShoesManagementAdapter extends RecyclerView.Adapter<ShoesManagementAdapter.ShoesManagementViewHolder> {
     private final List<Studio> mList;
     private final Context mContext;
-    private final IClickItemServiceListener iClickItemServiceListener;
+    private final IClickItemShoesManagementListener iClickItemShoesManagementListener;
 
 
-    public CartAdapter(List<Studio> studioList, Context context, IClickItemServiceListener iClickItemServiceListener) {
-        this.mContext = context;
-        this.mList = studioList;
-        this.iClickItemServiceListener = iClickItemServiceListener;
+    public ShoesManagementAdapter(List<Studio> mList, Context mContext, IClickItemShoesManagementListener iClickItemShoesManagementListener) {
+        this.mList = mList;
+        this.mContext = mContext;
+        this.iClickItemShoesManagementListener = iClickItemShoesManagementListener;
     }
 
     @NonNull
     @Override
-    public CartAdapter.StudioViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_cart_item, parent, false);
-        return new CartAdapter.StudioViewHolder(view);
+    public ShoesManagementAdapter.ShoesManagementViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_shoes_item_admin, parent, false);
+        return new ShoesManagementAdapter.ShoesManagementViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CartAdapter.StudioViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ShoesManagementAdapter.ShoesManagementViewHolder holder, int position) {
         Studio studio = mList.get(position);
         if (studio == null) {
             return;
@@ -58,50 +59,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.StudioViewHold
         holder.ProductName.setText(studio.getName());
         holder.ProductPrice.setText(formatMoney(studio.getPrice()) + " VND");
         Picasso.get().load(studio.getAvatarStudio()).into(holder.ProductImage);
-        holder.itemCount.setText("1");
-
-        holder.itemCount.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if (!holder.itemCount.getText().toString().isEmpty()) {
-                    if (Integer.parseInt((String) holder.itemCount.getText().toString()) <= 0) {
-                        holder.itemCount.setText("1");
-                    }
-                }
-            }
-        });
-
-        holder.add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int value = Integer.parseInt((String) holder.itemCount.getText().toString());
-                value++;
-                holder.itemCount.setText(value + "");
-            }
-        });
-        holder.minus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int value = Integer.parseInt((String) holder.itemCount.getText().toString());
-                if (value == 1) {
-                    openConfirmAndDeleteDialog(Gravity.CENTER, position);
-                } else {
-                    value--;
-                    holder.itemCount.setText(value + "");
-                }
-            }
-        });
-
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,7 +69,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.StudioViewHold
         holder.productItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                iClickItemServiceListener.onClickItemService(studio);
+                iClickItemShoesManagementListener.onClickItemShoesManagement(studio);
             }
         });
     }
@@ -169,27 +126,21 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.StudioViewHold
         notifyDataSetChanged();
     }
 
-    public class StudioViewHolder extends RecyclerView.ViewHolder {
+    public class ShoesManagementViewHolder extends RecyclerView.ViewHolder {
         LinearLayout productItem;
-        Button add;
-        Button minus;
         Button delete;
-        EditText itemCount;
         TextView ProductName;
         TextView ProductPrice;
         ImageView ProductImage;
 
 
-        public StudioViewHolder(@NonNull View itemView) {
+        public ShoesManagementViewHolder(@NonNull View itemView) {
             super(itemView);
-            add = itemView.findViewById(R.id.add);
-            minus = itemView.findViewById(R.id.minus);
-            delete = itemView.findViewById(R.id.DeleteItem);
-            itemCount = itemView.findViewById(R.id.itemCount);
-            ProductName = itemView.findViewById(R.id.ProductName);
-            ProductPrice = itemView.findViewById(R.id.ProductPrice);
-            ProductImage = itemView.findViewById(R.id.ProductImage);
-            productItem = itemView.findViewById(R.id.productItem);
+            delete = itemView.findViewById(R.id.DeleteItem_admin);
+            ProductName = itemView.findViewById(R.id.ProductName_admin);
+            ProductPrice = itemView.findViewById(R.id.ProductPrice_admin);
+            ProductImage = itemView.findViewById(R.id.ProductImage_admin);
+            productItem = itemView.findViewById(R.id.productItem_admin);
         }
     }
 }

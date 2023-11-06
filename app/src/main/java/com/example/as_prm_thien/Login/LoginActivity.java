@@ -12,8 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.as_prm_thien.Admin.AdminHomeActivity;
 import com.example.as_prm_thien.Home.HomeActivity;
 import com.example.as_prm_thien.R;
+import com.example.as_prm_thien.Regex;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -41,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 
         initToolBar();
         editTextEmail = findViewById(R.id.editTextEmail);
-        editTextPassword = findViewById(R.id.editTextPassword);
+//        editTextPassword = findViewById(R.id.editTextPassword);
         Button buttonLogin = findViewById(R.id.btnLogin);
 
         // Thêm xử lý sự kiện cho nút đăng nhập
@@ -49,9 +51,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String credential = editTextEmail.getText().toString().trim();
-                String password = editTextPassword.getText().toString().trim();
-                if (validateEmail(credential) && validatePassword(password)) {
-                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+//                String password = editTextPassword.getText().toString().trim();
+                if (validateEmail(credential)) {
+                    Intent intent = new Intent(LoginActivity.this, OtpConfirmActivity.class);
+//
                     startActivity(intent);
                     finish();
                 } else {
@@ -64,7 +67,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean validateEmail(String email) {
         if (email.isEmpty()) {
-            editTextEmail.setError("Phone is required");
+            editTextEmail.setError("Email is required");
+            return false;
+        } else if (!Regex.EMAIL_ADDRESS.matcher(email).matches()) {
+            editTextEmail.setError("Pleased enter a valid email");
             return false;
         } else {
             editTextEmail.setError(null);

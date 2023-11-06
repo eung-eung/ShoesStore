@@ -116,7 +116,7 @@ public class Register_Activity extends AppCompatActivity {
         textFullName = findViewById(R.id.textFullName);
         textEmail = findViewById(R.id.textEmail);
         textPhoneNumner = findViewById(R.id.textPhoneNum);
-        textPassword = findViewById(R.id.textPass);
+//        textPassword = findViewById(R.id.textPass);
         btnRegister = findViewById(R.id.btnRegister);
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override

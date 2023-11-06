@@ -38,21 +38,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="Enter The Code You Received On Your Phone:"
+            android:text="Enter The Code You Received On Your Mail:"
             android:textAllCaps="true"
             android:textColor="@color/BlackText"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/phoneSignIn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="+84 ***********"
-            android:textAllCaps="true"
-            android:textColor="@color/BlackText"
-            android:textSize="18sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/phoneSignIn"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="+84 ***********"-->
+<!--            android:textAllCaps="true"-->
+<!--            android:textColor="@color/BlackText"-->
+<!--            android:textSize="18sp" />-->
 
         <com.chaos.view.PinView
             android:id="@+id/pinView"

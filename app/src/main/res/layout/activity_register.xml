@@ -75,19 +75,19 @@
                 android:paddingEnd="15dp"
                 android:textSize="15sp" />
 
-            <EditText
-                android:id="@+id/textPass"
-                style="@style/formInputText"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginTop="10dp"
-                android:hint="@string/login_password_hint"
-                android:inputType="textPassword"
-                android:maxLength="20"
-                android:maxLines="1"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:textSize="15sp" />
+<!--            <EditText-->
+<!--                android:id="@+id/textPass"-->
+<!--                style="@style/formInputText"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="45dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:hint="@string/login_password_hint"-->
+<!--                android:inputType="textPassword"-->
+<!--                android:maxLength="20"-->
+<!--                android:maxLines="1"-->
+<!--                android:paddingStart="15dp"-->
+<!--                android:paddingEnd="15dp"-->
+<!--                android:textSize="15sp" />-->
 
             <LinearLayout
                 android:layout_width="wrap_content"
