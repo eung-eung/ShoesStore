@@ -2,10 +2,18 @@ package com.example.as_prm_thien;
 
 import static org.junit.Assert.assertEquals;
 
+import com.example.as_prm_thien.Model.Order;
 import com.example.as_prm_thien.Net.BackendService;
+import com.example.as_prm_thien.Net.Config;
+import com.example.as_prm_thien.Net.CreateOrderRequest;
+import com.example.as_prm_thien.Net.GetOrderDetailsResponse;
+import com.example.as_prm_thien.Net.GetOrderOfUserResponse;
+import com.example.as_prm_thien.Net.GetProductRequest;
+import com.example.as_prm_thien.Net.GetProductResponse;
 import com.example.as_prm_thien.Net.LoginUserRequest;
 import com.example.as_prm_thien.Net.LoginUserVerifyRequest;
 import com.example.as_prm_thien.Net.LoginUserVerifyResponse;
+import com.example.as_prm_thien.Net.OrderItem;
 import com.example.as_prm_thien.Net.RegisterUserRequest;
 import com.example.as_prm_thien.Net.RegisterVerifyOTPRequest;
 import com.example.as_prm_thien.Net.Result;
@@ -13,6 +21,7 @@ import com.example.as_prm_thien.Net.ResultCallBack;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -80,6 +89,86 @@ public class BackendServiceUnitTest {
             }
         });
 
+//        executorService.shutdown();
+//        while (!executorService.awaitTermination(100, TimeUnit.MILLISECONDS)) {
+//        }
+    }
+
+    @Test
+    public void FromImageUuidToURL() {
+        assertEquals("http://35.187.224.84:9003/image?uuid=91bb428cac704d91908f156b90e56981", BackendService.FromImageUuidToURL("91bb428cac704d91908f156b90e56981"));
+    }
+
+    @Test
+    public void GetProducts() throws InterruptedException {
+        backendService.GetProducts(new GetProductRequest(0, 1000), new ResultCallBack<ArrayList<GetProductResponse>>() {
+            @Override
+            public void onComplete(Result<ArrayList<GetProductResponse>> result) {
+                assertEquals(true, result instanceof Result.Success);
+                if (result instanceof Result.Success) {
+                    ArrayList<GetProductResponse> products = ((Result.Success<ArrayList<GetProductResponse>>) result).data;
+                    assertEquals(2, products.size());
+                    assertEquals("91bb428cac704d91908f156b90e56981", products.get(0).getImage_url());
+
+                    System.out.println("products " + products);
+                }
+            }
+        });
+//
+//        executorService.shutdown();
+//        while (!executorService.awaitTermination(100, TimeUnit.MILLISECONDS)) {
+//    }
+
+    }
+
+    @Test
+    public void CreateOrder() throws InterruptedException {
+        ArrayList<OrderItem> products = new ArrayList<>();
+        products.add(new OrderItem(1, 5, 100_000));
+        products.add(new OrderItem(5, 10, 200_000));
+        products.add(new OrderItem(6, 15, 500_000));
+        backendService.CreateOrder(new CreateOrderRequest(1, products), new ResultCallBack<Boolean>() {
+            @Override
+            public void onComplete(Result<Boolean> result) {
+                assertEquals(true, result instanceof Result.Success);
+            }
+        });
+
+//        executorService.shutdown();
+//        while (!executorService.awaitTermination(100, TimeUnit.MILLISECONDS)) {
+//        }
+    }
+
+    @Test
+    public void GetAllOrdersByUser() throws InterruptedException {
+        backendService.GetAllOrdersOfUser(1, 1, new ResultCallBack<ArrayList<GetOrderOfUserResponse>>() {
+            @Override
+            public void onComplete(Result<ArrayList<GetOrderOfUserResponse>> result) {
+                assertEquals(true, result instanceof Result.Success);
+                if (result instanceof Result.Success) {
+                    ArrayList<GetOrderOfUserResponse> orders = ((Result.Success<ArrayList<GetOrderOfUserResponse>>) result).data;
+                    System.out.println(orders);
+                }
+            }
+        });
+
+//        executorService.shutdown();
+//        while (!executorService.awaitTermination(100, TimeUnit.MILLISECONDS)) {
+//        }
+    }
+
+    @Test
+    public void GetOrderDetails() throws InterruptedException {
+        backendService.GetOrderDetails(1, new ResultCallBack<ArrayList<GetOrderDetailsResponse>>() {
+            @Override
+            public void onComplete(Result<ArrayList<GetOrderDetailsResponse>> result) {
+                assertEquals(true, result instanceof Result.Success);
+                if (result instanceof Result.Success) {
+                    ArrayList<GetOrderDetailsResponse> orderDetails = ((Result.Success<ArrayList<GetOrderDetailsResponse>>) result).data;
+                    System.out.println(orderDetails);
+                }
+            }
+        });
         executorService.shutdown();
         while (!executorService.awaitTermination(100, TimeUnit.MILLISECONDS)) {
         }
